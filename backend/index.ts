@@ -4,6 +4,8 @@ import Fastify, { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify'
 import jsonMiddleware from './middlewares/jsonMiddleware';
 import Sentry from '@sentry/node';
 
+import router from "./routes";
+
 import 'dotenv/config';
 
 const { PORT, HOST } = process.env;
@@ -19,14 +21,15 @@ fastify.setErrorHandler((error, req, reply) => {
   });
 });
 
-fastify.get('/error', async () => {
-  throw new Error("Sentry error test");
-});
-
 jsonMiddleware(fastify);
 
-fastify.get('/', async (req: FastifyRequest, reply: FastifyReply) => {
-  reply.send({ info: 'Hello, world!' });
+fastify.register(router);
+
+fastify.setNotFoundHandler((req, reply) => {
+  reply.status(404).send({
+    statusCode: 404,
+    message: "Not Found",
+  });
 });
 
 const start = async (): Promise<void> => {
