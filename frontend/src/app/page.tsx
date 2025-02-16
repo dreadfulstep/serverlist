@@ -18,8 +18,9 @@ export default function Page() {
   )
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white">
-      <div className="flex" style={{ transform: "translate3d(0px, 0px, 0px);"}}>
+    <div className="relative flex flex-col items-center justify-center w-full px-4 py-8 md:px-0">
+          <div className="absolute inset-0 -z-10 h-[150vh] bg-[size:4rem_4rem] bg-[linear-gradient(to_right,#161616_1px,transparent_1px),linear-gradient(to_bottom,#161616_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+      <div className="flex max-w-7xl" style={{ transform: "translate3d(0px, 0px, 0px)"}}>
         <Carousel
           plugins={[plugin.current]}
           className="min-w-0 shrink-0 grow-0 basis-full relative isolate grid aspect-auto select-none overflow-hidden border border-white/25 rounded-lg"
@@ -49,8 +50,8 @@ export default function Page() {
           </CarouselContent>
 
           <div className="absolute bottom-8 right-16 flex gap-2">
-                      <CarouselPrevious className="inline-flex select-none items-center group/button justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 w-9 rounded-full"/>
-                      <CarouselNext className="inline-flex select-none items-center group/button justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 w-9 rounded-full"/>
+            <CarouselPrevious className="inline-flex select-none items-center group/button justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 w-9 rounded-full"/>
+            <CarouselNext className="inline-flex select-none items-center group/button justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 w-9 rounded-full"/>
           </div>
         </Carousel>
       </div>
