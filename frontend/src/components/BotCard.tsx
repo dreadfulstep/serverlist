@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ColorThief } from "@/utils/colourThief";
-import { Hash } from "lucide-react";
+import { ArrowBigUpDash, ArrowDownToLine, Hash, LucideChevronsUp } from "lucide-react";
 
 interface BotCardProps {
   id: string;
@@ -88,19 +88,20 @@ export default function BotCard({
           <div className="flex items-center gap-2 pt-2 text-sm">
             <Link
               href={`/bots/${id}/reviews`}
-              className="flex items-center rounded-md border border-green-500 bg-green-500/20 px-1 py-1 text-xs text-green-500 transition-colors hover:bg-green-500 hover:text-white"
+              className="flex items-center rounded-md border border-green-500 bg-green-500/20 px-1 py-1 text-xs text-green-500 transition-colors hover:bg-green-500/40 hover:text-white"
             >
-
+                <LucideChevronsUp className="size-4"/>
             </Link>
-            <div className="flex cursor-default items-center rounded-md border bg-secondary px-2 py-1 text-xs text-muted-foreground">
-              {servers.toLocaleString()}
+            <div className="flex cursor-default items-center rounded-md border bg-secondary/60 hover:bg-secondary/40 px-2 py-1 text-xs text-muted-foreground">
+                <ArrowDownToLine className="mr-1.5 size-4"/>
+                {servers.toLocaleString()}
             </div>
             <Link
               href={`/bots/${id}/vote`}
-              className="flex items-center rounded-md border bg-secondary px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+              className="flex items-center rounded-md border bg-secondary/60 hover:bg-secondary/40 px-2 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
             >
-
-              {upvotes}
+                <ArrowBigUpDash className="mr-1.5 size-4"/>
+                {upvotes}
             </Link>
           </div>
         </div>
