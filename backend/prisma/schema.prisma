@@ -12,6 +12,19 @@ datasource db {
 
 model User {
   id        Int     @id @default(autoincrement())
-  email     String  @unique
+  discordId String  @unique
   createdAt DateTime @default(now())
+
+  sessions Session[]
+}
+
+model Session {
+  id          String  @id @default(uuid())
+  userId      Int
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken String
+  refreshToken String
+  sessionToken String @unique
+  createdAt   DateTime @default(now())
+  expiresAt   DateTime
 }

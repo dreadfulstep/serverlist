@@ -14,13 +14,6 @@ const fastify: FastifyInstance = Fastify({});
 
 Sentry.setupFastifyErrorHandler(fastify);
 
-fastify.setErrorHandler((error, req, reply) => {
-  reply.status(500).send({
-    statusCode: 500,
-    message: "Internal Server Error",
-  });
-});
-
 jsonMiddleware(fastify);
 
 fastify.register(router);
