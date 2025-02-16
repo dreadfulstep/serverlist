@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "@sentry/node": "^9.1.0",
+    "@sentry/profiling-node": "^9.1.0",
     "dotenv": "^16.4.7",
     "fastify": "^5.2.1",
     "posthog-node": "^4.6.0"

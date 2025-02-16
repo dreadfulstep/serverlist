@@ -2,12 +2,12 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
 export default function jsonMiddleware(fastify: FastifyInstance) {
   fastify.addHook("onSend", async (req: FastifyRequest, reply: FastifyReply, payload: any) => {
-    const start = process.hrtime.bigint(); // Start timing in nanoseconds
+    const start = process.hrtime.bigint();
 
     reply.header("Content-Type", "application/json");
 
-    const end = process.hrtime.bigint(); // End timing in nanoseconds
-    const elapsedNs = end - start; // Calculate elapsed time in nanoseconds
+    const end = process.hrtime.bigint();
+    const elapsedNs = end - start;
 
     let formattedTime;
     if (elapsedNs < 1_000n) {
@@ -23,11 +23,13 @@ export default function jsonMiddleware(fastify: FastifyInstance) {
     try {
       const body = JSON.parse(payload.toString());
 
-      const { error, ...rest } = body;
+      const { statusCode = reply.statusCode, error, message, ...rest } = body;
 
       const formattedResponse = {
-        ...(error && { error }),
-        data: rest,
+        statusCode,
+        ...(error && { message: error }),
+        ...(message && !error && { message }),
+        data: Object.keys(rest).length ? rest : undefined,
         passingTime: formattedTime,
       };
 
@@ -35,8 +37,8 @@ export default function jsonMiddleware(fastify: FastifyInstance) {
     } catch (err) {
       console.error("Error processing response:", err);
       return JSON.stringify({
-        success: false,
-        error: "INTERNAL_SERVER_ERROR",
+        statusCode: 500,
+        message: "INTERNAL_SERVER_ERROR",
         passingTime: formattedTime,
       });
     }
