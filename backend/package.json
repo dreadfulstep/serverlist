@@ -4,7 +4,10 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "fastify": "^5.2.1"
+    "@sentry/node": "^9.1.0",
+    "dotenv": "^16.4.7",
+    "fastify": "^5.2.1",
+    "posthog-node": "^4.6.0"
   },
   "scripts": {
     "start": "node build/index.js",

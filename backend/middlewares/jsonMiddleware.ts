@@ -23,10 +23,9 @@ export default function jsonMiddleware(fastify: FastifyInstance) {
     try {
       const body = JSON.parse(payload.toString());
 
-      const { message, error, ...rest } = body;
+      const { error, ...rest } = body;
 
       const formattedResponse = {
-        ...(message && { message }),
         ...(error && { error }),
         data: rest,
         passingTime: formattedTime,
