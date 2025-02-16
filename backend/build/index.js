@@ -15,6 +15,16 @@ const posthog = new posthog_node_1.PostHog(POSTHOG_API_KEY || '', {
 });
 const fastify = (0, fastify_1.default)({});
 node_1.default.setupFastifyErrorHandler(fastify);
+fastify.setErrorHandler((error, req, reply) => {
+    reply.status(500).send({
+        statusCode: 500,
+        message: "Internal Server Error",
+        passingTime: "N/A",
+    });
+});
+fastify.get('/error', async () => {
+    throw new Error("Sentry error test");
+});
 fastify.addHook('onResponse', async (req, reply) => {
     posthog.capture({
         distinctId: req.ip || 'anonymous',

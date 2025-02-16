@@ -3,30 +3,24 @@ import './instrument';
 import Fastify, { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 import jsonMiddleware from './middlewares/jsonMiddleware';
 import Sentry from '@sentry/node';
-import { PostHog } from 'posthog-node';
 
 import 'dotenv/config';
 
-const { POSTHOG_API_KEY, POSTHOG_HOST, PORT, HOST } = process.env;
-
-const posthog = new PostHog(POSTHOG_API_KEY || '', {
-  host: POSTHOG_HOST || 'https://app.posthog.com',
-});
+const { PORT, HOST } = process.env;
 
 const fastify: FastifyInstance = Fastify({});
 
 Sentry.setupFastifyErrorHandler(fastify);
 
-fastify.addHook('onResponse', async (req, reply) => {
-  posthog.capture({
-    distinctId: req.ip || 'anonymous',
-    event: 'api_request',
-    properties: {
-      method: req.method,
-      path: req.originalUrl,
-      statusCode: reply.statusCode,
-    },
+fastify.setErrorHandler((error, req, reply) => {
+  reply.status(500).send({
+    statusCode: 500,
+    message: "Internal Server Error",
   });
+});
+
+fastify.get('/error', async () => {
+  throw new Error("Sentry error test");
 });
 
 jsonMiddleware(fastify);
