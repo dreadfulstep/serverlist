@@ -111,8 +111,7 @@ export default function BotCard({
         </div>
 
         <div className="relative mt-4 flex gap-2 overflow-hidden px-4 pb-4">
-          <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-24 bg-tertiary mask-linear mask-dir-to-l mask-to-0 mask-via-50"></div>
-          <Link href="/tag/ashmw" className="flex items-center whitespace-nowrap rounded-md border bg-secondary px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
+        <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-24 bg-background mask-linear mask-dir-to-l mask-to-0 mask-via-50"></div>          <Link href="/tag/ashmw" className="flex items-center whitespace-nowrap rounded-md border bg-secondary px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
             <Hash size={24} className="mr-1 size-3.5"/>
             Utility
           </Link>
