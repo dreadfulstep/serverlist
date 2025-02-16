@@ -12,12 +12,6 @@ require("dotenv/config");
 const { PORT, HOST } = process.env;
 const fastify = (0, fastify_1.default)({});
 node_1.default.setupFastifyErrorHandler(fastify);
-fastify.setErrorHandler((error, req, reply) => {
-    reply.status(500).send({
-        statusCode: 500,
-        message: "Internal Server Error",
-    });
-});
 (0, jsonMiddleware_1.default)(fastify);
 fastify.register(routes_1.default);
 fastify.setNotFoundHandler((req, reply) => {
