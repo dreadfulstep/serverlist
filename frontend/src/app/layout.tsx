@@ -1,14 +1,20 @@
+import { Manrope, Prompt, Inter } from "next/font/google";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manropeFont = Manrope({
+  variable: "--font-number",
+  subsets: ["latin"],
+})
+
+const promptFont = Prompt({
+  variable: "--font-heading",
+  weight: "400",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const interFont = Inter({
+  variable: "--font-text",
   subsets: ["latin"],
 });
 
@@ -25,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}
+        className={`${manropeFont.variable} ${promptFont.variable} ${interFont.variable} antialiased`}
       >
         {children}
       </body>

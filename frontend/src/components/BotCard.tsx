@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ColorThief } from "@/utils/colourThief";
+import { Hash } from "lucide-react";
 
 interface BotCardProps {
   id: string;
@@ -112,39 +113,19 @@ export default function BotCard({
         <div className="relative mt-4 flex gap-2 overflow-hidden px-4 pb-4">
           <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-24 bg-tertiary mask-linear mask-dir-to-l mask-to-0 mask-via-50"></div>
           <Link href="/tag/ashmw" className="flex items-center whitespace-nowrap rounded-md border bg-secondary px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-hash mr-1 size-3.5">
-              <line x1="4" x2="20" y1="9" y2="9"></line>
-              <line x1="4" x2="20" y1="15" y2="15"></line>
-              <line x1="10" x2="8" y1="3" y2="21"></line>
-              <line x1="16" x2="14" y1="3" y2="21"></line>
-            </svg>
+            <Hash size={24} className="mr-1 size-3.5"/>
             Utility
           </Link>
           <Link href="/tag/ashmw" className="flex items-center whitespace-nowrap rounded-md border bg-secondary px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-hash mr-1 size-3.5">
-              <line x1="4" x2="20" y1="9" y2="9"></line>
-              <line x1="4" x2="20" y1="15" y2="15"></line>
-              <line x1="10" x2="8" y1="3" y2="21"></line>
-              <line x1="16" x2="14" y1="3" y2="21"></line>
-            </svg>
+            <Hash size={24} className="mr-1 size-3.5"/>
             Birthday
           </Link>
           <Link href="/tag/ashmw" className="flex items-center whitespace-nowrap rounded-md border bg-secondary px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-hash mr-1 size-3.5">
-              <line x1="4" x2="20" y1="9" y2="9"></line>
-              <line x1="4" x2="20" y1="15" y2="15"></line>
-              <line x1="10" x2="8" y1="3" y2="21"></line>
-              <line x1="16" x2="14" y1="3" y2="21"></line>
-            </svg>
+            <Hash size={24} className="mr-1 size-3.5"/>
             Celebration
           </Link>
           <Link href="/tag/ashmw" className="flex items-center whitespace-nowrap rounded-md border bg-secondary px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-hash mr-1 size-3.5">
-              <line x1="4" x2="20" y1="9" y2="9"></line>
-              <line x1="4" x2="20" y1="15" y2="15"></line>
-              <line x1="10" x2="8" y1="3" y2="21"></line>
-              <line x1="16" x2="14" y1="3" y2="21"></line>
-            </svg>
+            <Hash size={24} className="mr-1 size-3.5"/>
             Event
           </Link>
         </div>

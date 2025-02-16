@@ -29,7 +29,7 @@ export default function LandingCarousel() {
                 <div className="absolute inset-0 z-0 opacity-30" style={{ backgroundSize: "500px", backgroundImage: "url('/noise.svg')" }}></div>
                 
                 <div className="relative z-10 max-w-md">
-                  <h2 className="text-3xl font-bold">In Development Build</h2>
+                  <h2 className="text-2xl md:text-4xl font-bold font-heading capitalize">In Development Build</h2>
                   <p className="text-lg text-gray-300 mt-4">
                     This build is in development. Features may change or break at any time.
                   </p>
