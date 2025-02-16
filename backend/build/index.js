@@ -18,9 +18,6 @@ fastify.setErrorHandler((error, req, reply) => {
         message: "Internal Server Error",
     });
 });
-fastify.get('/error', async () => {
-    throw new Error("Sentry error test");
-});
 (0, jsonMiddleware_1.default)(fastify);
 fastify.register(routes_1.default);
 fastify.setNotFoundHandler((req, reply) => {
