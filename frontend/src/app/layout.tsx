@@ -9,7 +9,7 @@ const manropeFont = Manrope({
 
 const promptFont = Prompt({
   variable: "--font-heading",
-  weight: "400",
+  weight: "700",
   subsets: ["latin"],
 });
 
