@@ -33,10 +33,10 @@ export default function BotCard({
     const colorThief = new ColorThief();
 
     const calculateDominantColor = () => {
-      if (avatarRef.current && isAvatarLoaded) {
-        const avatarColor = colorThief.getColor(avatarRef.current);
-        const colorFromAvatar = `rgba(${avatarColor.r}, ${avatarColor.g}, ${avatarColor.b})`;
-        setDominantColor(colorFromAvatar);
+      if (avatarRef.current && bannerRef.current && isAvatarLoaded && isBannerLoaded) {
+        const dominant = colorThief.getColor(avatarRef.current);
+        const dominantColorString = `rgb(${dominant.r}, ${dominant.g}, ${dominant.b})`;
+        setDominantColor(dominantColorString);
       }
     };
 
