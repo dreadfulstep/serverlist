@@ -5,6 +5,7 @@ import LandingCarousel from "@/components/landing/Carousel";
 import Navbar from "@/components/Navbar";
 import HeaderBranding from "@/components/landing/HeaderBranding";
 import BotSection from "@/components/landing/BotSection";
+import RecentlyAddedSection from "@/components/landing/RecentlyAddedSection";
 
 export default function Page() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -67,6 +68,8 @@ export default function Page() {
       </div>
 
       <BotSection bots={bots} />
+
+      <RecentlyAddedSection bots={bots} />
 
       <Navbar className={showNavbar ? "translate-y-0" : "-translate-y-[100%]"} />
     </div>
