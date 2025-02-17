@@ -35,7 +35,7 @@ export default function BotCard({
     const calculateDominantColor = () => {
       if (avatarRef.current && bannerRef.current && isAvatarLoaded && isBannerLoaded) {
         const dominant = colorThief.getColor(avatarRef.current);
-        const dominantColorString = `rgb(${dominant.r}, ${dominant.g}, ${dominant.b})`;
+        const dominantColorString = `${dominant.r}, ${dominant.g}, ${dominant.b}`;
         setDominantColor(dominantColorString);
       }
     };
@@ -52,7 +52,7 @@ export default function BotCard({
         style={{ animationDelay: "0ms", "--primary": dominantColor } as React.CSSProperties}
     >
       <article
-        className="group relative isolate flex w-full max-w-[22rem] flex-col rounded-xl border bg-tertiary ring-offset-2 ring-offset-background transition-all hover:ring-2 hover:ring-[var(--primary)] cursor-pointer"
+        className="group relative isolate flex w-full max-w-[22rem] flex-col rounded-xl border bg-tertiary ring-offset-2 ring-offset-background transition-all hover:ring-2 hover:ring-[rgba(var(--primary))] cursor-pointer"
         data-state="closed"
         style={{ "--ring-color": dominantColor } as React.CSSProperties}
       >
@@ -133,7 +133,7 @@ export default function BotCard({
         <div className="grid grid-cols-2 gap-4 p-4 pt-0">
           <Link
             href={`/bots/${id}`}
-            className="inline-flex select-none items-center group/button hover:bg-[var(--primary)] border border-[var(--primary)] justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 bg-accent/30 text-accent-foreground h-10 px-4 py-2 hover:text-primary-foreground"
+            className="inline-flex select-none items-center group/button bot-view-hover border border-[rgba(var(--primary))] justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 bg-accent/30 text-accent-foreground h-10 px-4 py-2"
           >
             View
           </Link>

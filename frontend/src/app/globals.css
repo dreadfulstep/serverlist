@@ -49,3 +49,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.bot-view-hover:hover {
+  background-color: rgba(var(--primary), 0.2);
+}
